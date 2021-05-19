@@ -157,7 +157,7 @@ $tmp = strtolower($in_keywod);
 $svckey = "";
 
 // build hit url address
-$prefix = "http://202.152.162.192:8002/push";
+$prefix = "";
 $URL = "";
 $HITMTD = "get";
 
