@@ -1,0 +1,10 @@
+Jul 03 15:24:21 magina sendEmail[7931]: Email was sent successfully!
+Jul 03 15:30:23 magina sendEmail[8134]: Email was sent successfully!
+Jul 04 17:29:19 magina sendEmail[18551]: Email was sent successfully!
+Jul 04 17:39:01 magina sendEmail[18983]: Email was sent successfully!
+Jul 04 17:42:32 magina sendEmail[19198]: Email was sent successfully!
+Sep 05 13:50:03 magina sendEmail[27984]: WARNING => The recipient <ipul@sisintegrasi.com> was rejected by the mail server, error follows:
+Sep 05 13:50:03 magina sendEmail[27984]: WARNING => Received: 	450 4.1.2 <ipul@sisintegrasi.com>: Recipient address rejected: Domain not found
+Sep 05 13:50:03 magina sendEmail[27984]: WARNING => The recipient <judy@m-solegra.co.id> was rejected by the mail server, error follows:
+Sep 05 13:50:03 magina sendEmail[27984]: WARNING => Received: 	550 5.1.1 <judy@m-solegra.co.id>: Recipient address rejected: User unknown in virtual mailbox table
+Sep 05 13:50:03 magina sendEmail[27984]: Email was sent successfully!

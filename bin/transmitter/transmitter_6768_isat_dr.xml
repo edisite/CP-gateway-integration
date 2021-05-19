@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<sh6768isat>
+	<app_port_num>35635</app_port_num>
+
+	<db_queue>
+		<host>10.1.1.94</host>
+		<database>mdw6768_isat</database>
+		<user>edimdw6768isat</user>
+		<password>3disilit3SQL</password>
+		<table>queue_isat_dr</table>
+	</db_queue>
+
+	<directories>
+		<logs_files>/opt/apps/6768/log/isat/</logs_files>
+	</directories>
+
+	<sleep>
+		<fast>1000000</fast>
+		<long>5000000</long>
+	</sleep>
+
+	<thread_timeout_updater>600</thread_timeout_updater>
+	<thread_timeout_pull>300</thread_timeout_pull>
+	<thread_timeout_push>300</thread_timeout_push>
+
+	<log_per_thread>no</log_per_thread>
+	<log_naming_pattern>%Y-%m-%d_dr_tmt.log</log_naming_pattern>
+	<log_flow_descriptor>9|dr|tmt</log_flow_descriptor>
+
+	<queue_pull>
+		<transmitter_count>2</transmitter_count>
+		<query1>SELECT dna, trxid, msisdn, sid, keyword, hit_mtd, hit_url FROM queue_isat_dr WHERE flag = 0 AND method = 'pull' ORDER BY dna LIMIT 200</query1>
+	</queue_pull>
+
+	<queue_push>
+		<transmitter_count>1</transmitter_count>
+		<query1>SELECT dna, trxid, msisdn, sid, keyword, hit_mtd, hit_url FROM queue_isat_dr WHERE flag = 0 AND (method = 'push' OR method IS NULL) ORDER BY dna LIMIT 150</query1>
+	</queue_push>
+
+	<dr_received_as_response_then_forward_to>
+		<enabled>no</enabled>
+		<forward_to_name>indosat</forward_to_name>
+		<forward_to_url>http://</forward_to_url>
+	</dr_received_as_response_then_forward_to>
+
+	<success_response>
+		<ok1><status>0</status></ok1>
+		<ok2>OK</ok2>
+	</success_response>
+	<owners_url>
+		<default>http://localhost/koin/mc/mc_dreport_6768_isat.php</default>
+		<koin>http://localhost/koin/mc/mc_dreport_6768_isat.php</koin>
+		<cm>http://localhost/koin/mc/mc_dreport_6768_isat.php</cm>
+		<epi>http://epimobile.com/report/solegra_isat</epi>
+		<hw>http://10.1.1.61/hw/engine/incoming/isat/dr_isat.php</hw>
+	</owners_url>
+	<keywords_owner>
+		<koin>harga</koin>
+		<epi>ceria,wow</epi>
+		<hw>zodiak,zodiakpull</hw>
+	</keywords_owner>
+</sh6768isat>

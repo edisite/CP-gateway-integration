@@ -1,0 +1,155 @@
+Report 6768 INDOSAT
+Jam :  10
+=================================
+ID	Group	Total Member
+1	zodiak	1
+3	cinta	7345
+4	moci	12043
+13	artis	15631
+20	HAPE	1485297
+27	JPOP	499
+28	HORO	707
+29	HOROR	1
+45	HOKI	800816
+47	Fengshui	2854
+70	VEA	20097
+72	STARDUT	3753
+78	DEBOL	432
+93	GEMVAL	3600
+94	ROMANCE	10222
+95	BUGILA	104798
+ID	Group	Sub	Total
+3	cinta	1	3572
+3	cinta	2	3773
+4	moci	1	6014
+4	moci	2	6029
+20	HAPE	1	127727
+20	HAPE	100	553
+20	HAPE	2	133199
+20	HAPE	3	138077
+20	HAPE	4	136731
+20	HAPE	5	131239
+20	HAPE	6	90441
+20	HAPE	7	2
+20	HAPE	96	727328
+45	HOKI	1	129088
+45	HOKI	100	1426
+45	HOKI	2	129657
+45	HOKI	3	128462
+45	HOKI	4	144596
+45	HOKI	5	136457
+45	HOKI	6	131130
+=================================
+MO :
+   1259  =   reg bugila
+    161  =   unreg bugila
+      1  =   unreg cinta
+     81  =   unreg hape
+     95  =   unreg hoki
+      1  =   unreg moci
+     13  =   unreg romance
+      2  =   unreg stardut
+      5  =   unreg vea
+
+
+
+
+
+
+
+MO OVERLIMIT : 
+
+
+=================================
+Total MT Hari ini : 132979
+
+MT PULL :
+   1422  =   67680184001027    :    bugila  
+      1  =   67680184001027    :    cinta  
+     81  =   67680184001027    :    hape  
+     96  =   67680184001027    :    hoki  
+      1  =   67680184001027    :    moci  
+     13  =   67680184001027    :    romance  
+      2  =   67680184001027    :    stardut  
+      5  =   67680184001027    :    vea  
+
+MT PUSH :
+    771  =   67680184049008    :    bugila  
+    438  =   67680184049008    :    debol  
+ 114646  =   67680184049008    :    hoki  
+  10382  =   67680184026007    :    romance  
+   3808  =   67680184026007    :    stardut  
+
+Retry PULL
+
+
+
+
+Retry PUSH Pertama
+
+Retry PUSH Kedua
+
+=================================
+DR TOTAL : 132589
+DR Detail :
+  30398 =  2 
+     44 =  3 
+  95976 =  4 
+   1144 =  6 
+      1 =  66 
+   4992 =  96 
+    423 =  97 
+
+DR2
+   1429 :  67680184001027  :  bugila 
+      1 :  67680184001027  :  cinta 
+     80 :  67680184001027  :  hape 
+     92 :  67680184001027  :  hoki 
+      1 :  67680184001027  :  moci 
+     13 :  67680184001027  :  romance 
+      2 :  67680184001027  :  stardut 
+      5 :  67680184001027  :  vea 
+    624 :  67680184026007  :  romance 
+    427 :  67680184026007  :  stardut 
+    134 :  67680184049008  :  bugila 
+     45 :  67680184049008  :  debol 
+  27546 :  67680184049008  :  hoki 
+DR4
+   9289 :  67680184026007  :  romance 
+   3214 :  67680184026007  :  stardut 
+    620 :  67680184049008  :  bugila 
+    380 :  67680184049008  :  debol 
+  82494 :  67680184049008  :  hoki 
+
+
+
+=========================================
+Jumlah Antrian Member yang akan di push :
+Khusus Push Story ya :
+
+
+=========================================
+
+Response status ACK dari Indosat
+ 133589  :  STATUS>0</STATUS
+
+Space Hardisk  : 88%
+   --=APPS MONITOR=--
+MC TRANS		: ON
+MC SCH			: ON
+MC STR			: ON
+MC Downcharging		: ON
+
+GW - Disp MO		: ON
+GW - Disp MT		: ON
+GW - Disp DR		: ON
+GW - Tran MO		: ON
+GW - Tran MT		: OFF
+GW - Tran DR		: ON
+
+
+APPS 6768 Wappush
+
+APPS 9live
+GW - Tran MT 		: ON
+

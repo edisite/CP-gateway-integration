@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<sh6768axis>
+	<app_port_num>31431</app_port_num>
+
+	<db_queue>
+		<host>10.1.1.75</host>
+		<database>mdw6768_axis</database>
+		<user>hengky</user>
+		<password>h3ngkyp4ss</password>
+		<table>queue_axis_mt</table>
+	</db_queue>
+
+	<directories>
+		<logs_files>/opt/apps/6768/log/axis/</logs_files>
+	</directories>
+
+	<sleep>
+		<fast>1000000</fast>
+		<long>5000000</long>
+	</sleep>
+
+	<thread_timeout_updater>600</thread_timeout_updater>
+	<thread_timeout_pull>300</thread_timeout_pull>
+	<thread_timeout_push>300</thread_timeout_push>
+
+	<log_per_thread>no</log_per_thread>
+	<log_naming_pattern>%Y-%m-%d_mt_tmt.log</log_naming_pattern>
+	<log_flow_descriptor>6|mt|tmt</log_flow_descriptor>
+
+	<queue_pull>
+		<transmitter_count>5</transmitter_count>
+		<query1>SELECT dna, trxid, msisdn, sid, keyword, hit_mtd, hit_url FROM queue_axis_mt WHERE flag = 0 AND method = 'pull' ORDER BY dna LIMIT 300</query1>
+	</queue_pull>
+
+	<queue_push>
+		<transmitter_count>1</transmitter_count>
+		<query1>SELECT dna, trxid, msisdn, sid, keyword, hit_mtd, hit_url FROM queue_axis_mt WHERE flag = 0 AND (method = 'push' OR method IS NULL) ORDER BY dna LIMIT 600</query1>
+	</queue_push>
+
+	<dr_received_as_response_then_forward_to>
+		<enabled>yes</enabled>
+		<forward_to_name>koin</forward_to_name>
+		<forward_to_url>http://202.149.71.75/koinfrm/updtrx.php</forward_to_url>
+		<forward_method>get</forward_method>
+	</dr_received_as_response_then_forward_to>
+
+	<success_response>
+		<ok1><status>0</status></ok1>
+	</success_response>
+	<owners_url>
+		<default>http://103.3.221.154:10000/mt/mvas/send/</default>
+	</owners_url>
+	<keywords_owner>
+	</keywords_owner>
+</sh6768axis>

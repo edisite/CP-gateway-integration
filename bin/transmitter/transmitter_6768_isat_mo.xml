@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<sh6768isat>
+	<app_port_num>35235</app_port_num>
+
+	<db_queue>
+		<host>10.1.1.94</host>
+		<database>mdw6768_isat</database>
+		<user>edimdw6768isat</user>
+		<password>3disilit3SQL</password>
+		<table>queue_isat_mo</table>
+	</db_queue>
+
+	<directories>
+		<logs_files>/opt/apps/6768/log/isat/</logs_files>
+	</directories>
+
+	<sleep>
+		<fast>1000000</fast>
+		<long>5000000</long>
+	</sleep>
+
+	<thread_timeout_updater>600</thread_timeout_updater>
+	<thread_timeout_pull>300</thread_timeout_pull>
+	<thread_timeout_push>300</thread_timeout_push>
+
+	<log_per_thread>no</log_per_thread>
+	<log_naming_pattern>%Y-%m-%d_mo_tmt.log</log_naming_pattern>
+	<log_flow_descriptor>3|mo|tmt</log_flow_descriptor>
+
+	<queue_pull>
+		<transmitter_count>4</transmitter_count>
+		<query1>SELECT dna, trxid, msisdn, '' AS sid, keyword, hit_mtd, hit_url FROM queue_isat_mo WHERE flag = 0 AND method = 'pull' ORDER BY dna LIMIT 300</query1>
+	</queue_pull>
+
+	<queue_push>
+		<transmitter_count>1</transmitter_count>
+		<query1>SELECT dna, trxid, msisdn, '' AS sid, keyword, hit_mtd, hit_url FROM queue_isat_mo WHERE flag = 0 AND (method = 'push' OR method IS NULL) ORDER BY dna LIMIT 600</query1>
+	</queue_push>
+
+	<dr_received_as_response_then_forward_to>
+		<enabled>no</enabled>
+		<forward_to_name>indosat</forward_to_name>
+		<forward_to_url>http://</forward_to_url>
+	</dr_received_as_response_then_forward_to>
+
+	<success_response>
+		<ok1><status>0</status></ok1>
+		<ok2>OK</ok2>
+	</success_response>
+	<owners_url>
+		<default>http://10.1.1.89/koin/mc/mc_resp_pull_6768_isat.php</default>
+		<cm>http://10.1.1.89/koin/mc/mc_resp_6768_isat.php</cm>
+		<ulo>http://10.1.1.89/koin/mc/mc_resp_6768_isat_ulo.php</ulo>
+		<hp>http://10.1.1.89/koin/mc/gadget_resp_isat.php</hp>
+		<pull>http://10.1.1.89/koin/mc/mc_resp_pull_6768_isat.php</pull>
+		<epi>http://epimobile.com/inbound/solegra_MO_isat</epi>
+		<hw>http://10.1.1.61/hw/engine/incoming/isat/mo_isat.php</hw>
+	</owners_url>
+	<keywords_owner>
+		<cm>moci,cinta,ayo,hape,coim,rahasia,suka,talu,jpop,horo,razo,pop,hoki,ramalan,fengshui,ingfb,itafb,spafb,budfb,bplfb,erofb,intfb,bunfb,vea,stardut,debol,kata,artis</cm>
+		<hp>harga,rh,rk</hp>
+		<pull>vr,gf,gk15,gk10,gk5,artispull,horos,horor,gp,gj,glwap,horor,jpoppull,gk1,gpwap,gjwap,wcwap,zod,cantik,mesra,gadis,play,main,hot15</pull>
+		<epi>ceria,wow</epi>
+		<hw>zodiak,zodiakpull</hw>
+		<ulo>caper,fun5,ya,kata,tolak,gs,gl</ulo>
+	</keywords_owner>
+</sh6768isat>

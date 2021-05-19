@@ -1,0 +1,61 @@
+Report 6768 Pogu
+Jam :  16
+=================================
+ID	Partner	Group	Total Member
+13	Pogu	artis	46275
+27	Pogu	JPOP	2148
+45	Pogu	HOKI	33044
+ID	Group	Sub	Total Member
+45	HOKI	hokicap	33034
+45	HOKI	hokiaqu	1
+45	HOKI	hokiari	1
+45	HOKI	hokigem	2
+45	HOKI	hokican	2
+45	HOKI	hokivir	3
+45	HOKI	hokisco	1
+=================================
+MO :
+     15  =   reg jpop
+     49  =   unreg artis
+    113  =   unreg hoki
+     14  =   unreg jpop
+
+
+
+
+=================================
+MT PULL :
+     49  =   artis  
+    113  =   hoki  
+     29  =   jpop  
+
+MT PUSH :
+  33536  =   hoki  
+     15  =   jpop  
+
+Retry:
+
+      2  =   artis  
+      7  =   hoki  
+      1  =   jpop  
+
+=================================
+DR :
+   4207 =  2 
+      3 =  3 
+  29019 =  4 
+     11 =  5 
+     46 =  6 
+    342 =  96 
+      1 =  97 
+
+DR2
+     49  =   67680184001027   :   artis  
+    112  =   67680184001027   :   hoki  
+     29  =   67680184001027   :   jpop  
+   4011  =   67680184049008   :   hoki  
+      6  =   67680184049008   :   jpop  
+DR4
+      2  =   67680184049008   :   artis  
+  29010  =   67680184049008   :   hoki  
+      7  =   67680184049008   :   jpop  

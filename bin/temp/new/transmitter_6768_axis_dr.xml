@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<configuration>
+	<app_port_num>31631</app_port_num>
+
+	<db_queue>
+		<host>10.1.1.75</host>
+		<database>mdw6768_axis</database>
+		<user>hengky</user>
+		<password>h3ngkyp4ss</password>
+		<table>queue_axis_dr</table>
+	</db_queue>
+
+	<directories>
+		<logs_files>/opt/apps/6768/log/axis/</logs_files>
+	</directories>
+
+	<sleep>
+		<fast>1000000</fast>
+		<long>5000000</long>
+	</sleep>
+
+	<thread_timeout_updater>600</thread_timeout_updater>
+	<thread_timeout_pull>300</thread_timeout_pull>
+	<thread_timeout_push>300</thread_timeout_push>
+
+	<log_per_thread>no</log_per_thread>
+	<log_naming_pattern>%Y-%m-%d_dr_tmt.log</log_naming_pattern>
+	<log_flow_descriptor>9|dr|tmt</log_flow_descriptor>
+
+	<queue_pull>
+		<transmitter_count>3</transmitter_count>
+		<query1>SELECT dna, trxid, msisdn, sid, keyword, hit_mtd, hit_url FROM queue_axis_dr WHERE flag = 0 AND method = 'pull' ORDER BY dna LIMIT 300</query1>
+	</queue_pull>
+
+	<queue_push>
+		<transmitter_count>3</transmitter_count>
+		<query1>SELECT dna, trxid, msisdn, sid, keyword, hit_mtd, hit_url FROM queue_axis_dr WHERE flag = 0 AND (method = 'push' OR method IS NULL) ORDER BY dna LIMIT 300</query1>
+	</queue_push>
+
+
+	<owner_keyword>
+		<crm>bugfirstkeyword,star,sa,skymobi,sky,mobi,starsky,starmoby,ayu1,ayu7,dewi,goal,game,sehat</crm>
+		<koin>ac,astro,atm,bas,belajarku,best,pulsa,khalifah,bg,bgpol,bola,budget,cck,cek,cs,data,far,fav,gprs,harga,hari</koin>
+		<koin>hoki,hp,hpturun,info,jawab,jomblo,kby,koinfun,koinhp,koinluv,kz,lagu,lahir,lelang,maju,merdeka,mimpi,motivasi</koin>
+		<koin>murah,nama,p,pantau,pantun,pilih,poll,rbt,rekomendasi,request,saldo,saran,sholat,stnk,sumpah,survey,thr</koin>
+		<koin>tj,total,tpt,vobe,warna,weton,wisata,umb_harga,umb_spec,umb_tips,umb_rekomendasi,umb_info,umb_aduhp,umb_setara</koin>
+		<koin>umb_plusminus,umb_pantau,umb_program,_fbr,_pekat,unreg_fbr,unreg_pekat,radio</koin>
+		<koin>tomboati,cahayahati,asmaulhusna,ym,rahasia,kisah,hikmah,matahati,pls,tauladan,bsmr</koin>
+		<cheese>amoy,belle,boom,cherry,chibi,dl,fm,hantu,horor,khaliza,koko,kultum,marawis,miss,model,nta,predik,pssi,rianti,rot,salam,song,tidak,tiket,timnas,tr,vid,wp,wpnta,wpmu,ya,zakat</cheese>
+	</owner_keyword>
+
+	<transmitter>
+		<default>
+			<method>get</method>
+			<address>http://10.1.1.75:7004/dr</address>
+		</default>
+		<crm>
+			<method>get</method>
+			<address>http://10.1.1.75:7004/dr</address>
+		</crm>
+		<koin>
+			<method>get</method>
+			<address>http://202.149.71.75/koinfrm/indosis-dr.php</address>
+		</koin>
+		<cheese>
+			<method>get</method>
+			<address>http://116.90.162.34/cheesefrm/dr_slg.php</address>
+		</cheese>
+	</transmitter>
+
+	<response>
+		<success_identifier1><status>0</status></success_identifier1>
+		<save_to_db>
+			<enabled>no</enabled>
+			<into_table></into_table>
+			<into_field1></into_field1>
+			<from_xml_field1></from_xml_field1>
+		</save_to_db>
+		<forward>
+			<enabled>no</enabled>
+			<recipient>
+				<default>
+					<method></method>
+					<address></address>
+				</default>
+			</recipient>
+		</forward>
+	</response>
+</configuration>

@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<sh6768isat>
+	<app_port_num>35235</app_port_num>
+
+	<db_queue>
+		<host>10.1.1.75</host>
+		<database>mdw6768_isat</database>
+		<user>hengky</user>
+		<password>h3ngkyp4ss</password>
+		<table>queue_isat_mo</table>
+	</db_queue>
+
+	<directories>
+		<logs_files>/opt/apps/6768/log/isat/</logs_files>
+	</directories>
+
+	<sleep>
+		<fast>1000000</fast>
+		<long>5000000</long>
+	</sleep>
+
+	<thread_timeout_updater>600</thread_timeout_updater>
+	<thread_timeout_pull>300</thread_timeout_pull>
+	<thread_timeout_push>300</thread_timeout_push>
+
+	<log_per_thread>no</log_per_thread>
+	<log_naming_pattern>%Y-%m-%d_mo_tmt.log</log_naming_pattern>
+	<log_flow_descriptor>3|mo|tmt</log_flow_descriptor>
+
+	<queue_pull>
+		<transmitter_count>5</transmitter_count>
+		<query1>SELECT dna, trxid, msisdn, '' AS sid, keyword, hit_mtd, hit_url FROM queue_isat_mo WHERE flag = 0 AND method = 'pull' ORDER BY dna LIMIT 300</query1>
+	</queue_pull>
+
+	<queue_push>
+		<transmitter_count>1</transmitter_count>
+		<query1>SELECT dna, trxid, msisdn, '' AS sid, keyword, hit_mtd, hit_url FROM queue_isat_mo WHERE flag = 0 AND (method = 'push' OR method IS NULL) ORDER BY dna LIMIT 600</query1>
+	</queue_push>
+
+	<dr_received_as_response_then_forward_to>
+		<enabled>no</enabled>
+		<forward_to_name>indosat</forward_to_name>
+		<forward_to_url>http://</forward_to_url>
+	</dr_received_as_response_then_forward_to>
+
+	<success_response>
+		<ok1><status>0</status></ok1>
+	</success_response>
+	<owners_url>
+		<default>http://10.1.1.75:7004/mo</default>
+		<koin>http://10.1.1.75:7004/mo</koin>
+		<crm>http://10.1.1.75:7004/mo</crm>
+		<cheese>http://116.90.162.34/cheesefrm/main_slg.php</cheese>
+	</owners_url>
+	<keywords_owner>
+		<koin>ac,astro,atm,bas,belajarku,best,pulsa,khalifah,bg,bgpol,bola,budget,cck,cek,cs,data,far,fav,gprs,hari</koin>
+		<koin>hoki,hp,hpturun,info,jawab,jomblo,kby,koinfun,koinhp,koinluv,kz,lagu,lahir,lelang,maju,merdeka,mimpi,motivasi</koin>
+		<koin>murah,nama,p,pantau,pantun,pilih,poll,rbt,rekomendasi,request,saldo,saran,sholat,stnk,sumpah,survey,thr</koin>
+		<koin>tj,total,tpt,vobe,warna,weton,wisata,umb_harga,umb_spec,umb_tips,umb_rekomendasi,umb_info,umb_aduhp,umb_setara</koin>
+		<koin>umb_plusminus,umb_pantau,umb_program,_fbr,_pekat,unreg_fbr,unreg_pekat,radio</koin>
+		<crm>star,skymobi,sky,mobi,starsky,starmoby,ayu1,ayu7,dewi,harga,bsmr,cinta,zodiak</crm>
+		<cheese>amoy,belle,boom,cherry,chibi,dl,fm,hantu,horor,khaliza,koko,kultum,marawis,miss,model,nta,predik,pssi,rianti,rot,salam,song,tidak,tiket,timnas,tr,vid,wp,wpnta,wpmu,ya,zakat,garuda</cheese>
+	</keywords_owner>
+</sh6768isat>

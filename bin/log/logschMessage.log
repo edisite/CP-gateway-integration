@@ -1,0 +1,4 @@
+16:18:02,574  INFO DBUtil:37 - Query : select intervals from taskrunsch where typescheduler = 'sch'
+16:20:09,284  INFO DBUtil:37 - Query : select intervals from taskrunsch where typescheduler = 'sch'
+16:22:34,338  INFO DBUtil:37 - Query : select intervals from taskrunsch where typescheduler = 'sch'
+16:23:28,971  INFO DBUtil:37 - Query : select intervals from taskrunsch where typescheduler = 'sch'

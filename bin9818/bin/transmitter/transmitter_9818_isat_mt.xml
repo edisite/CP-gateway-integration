@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<sh6768isat>
+	<app_port_num>35445</app_port_num>
+
+	<db_queue>
+		<host>10.1.1.9</host>
+		<database>middleware9818</database>
+		<user>edi</user>
+		<password>3disit3SQL</password>
+		<table>queue_isat_mt_wap</table>
+	</db_queue>
+
+	<directories>
+		<logs_files>/opt/apps/9818/log/isat/</logs_files>
+	</directories>
+
+	<sleep>
+		<fast>1000000</fast>
+		<long>5000000</long>
+	</sleep>
+
+	<thread_timeout_updater>600</thread_timeout_updater>
+	<thread_timeout_pull>300</thread_timeout_pull>
+	<thread_timeout_push>300</thread_timeout_push>
+
+	<log_per_thread>no</log_per_thread>
+	<log_naming_pattern>%Y-%m-%d_mt_tmt.log</log_naming_pattern>
+	<log_flow_descriptor>6|mt|tmt</log_flow_descriptor>
+
+	<queue_pull>
+		<transmitter_count>4</transmitter_count>
+		<query1>SELECT dna, trxid, msisdn, sid, keyword, hit_mtd, hit_url FROM queue_isat_mt_wap WHERE flag = 0 AND method = 'pull' ORDER BY dna LIMIT 300</query1>
+	</queue_pull>
+
+	<queue_push>
+		<transmitter_count>1</transmitter_count>
+		<query1>SELECT dna, trxid, msisdn, sid, keyword, hit_mtd, hit_url FROM queue_isat_mt_wap WHERE flag = 0 AND (method = 'push' OR method IS NULL) ORDER BY dna LIMIT 300</query1>
+	</queue_push>
+
+	<dr_received_as_response_then_forward_to>
+		<enabled>no</enabled>
+		<forward_to_name>indosat</forward_to_name>
+		<forward_to_url>http://</forward_to_url>
+	</dr_received_as_response_then_forward_to>
+
+	<success_response>
+		<ok1><status>0</status></ok1>
+	</success_response>
+	<owners_url>
+		<default>http://202.152.162.221:55000/</default>
+		<freetalk>http://202.152.162.192:8002/push</freetalk>
+	</owners_url>
+	<keywords_owner>
+		<freetalk>freetalk</freetalk>
+	</keywords_owner>
+</sh6768isat>

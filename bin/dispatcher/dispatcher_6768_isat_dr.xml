@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<sh6768isat>
+	<app_port_num>35535</app_port_num>
+
+	<db_queue>
+		<host>10.1.1.94</host>
+		<database>mdw6768_isat</database>
+		<user>edimdw6768isat</user>
+		<password>3disilit3SQL</password>
+		<table>queue_isat_dr</table>
+		<statistic_table>queue_isat_dr_stat</statistic_table>
+		<expire_field>dtm</expire_field>
+		<expired_days>365</expired_days>
+	</db_queue>
+
+	<db_storage>
+		<host>10.1.1.94</host>
+		<database>mdw6768_isat</database>
+		<user>edimdw6768isat</user>
+		<password>3disilit3SQL</password>
+		<table>sms_out_isat</table>
+	</db_storage>
+
+	<directories>
+		<data_files>/opt/apps/6768/queue/isat/dr/</data_files>
+		<dump_files>/opt/apps/6768/queue/isat/dr_trash/</dump_files>
+		<logs_files>/opt/apps/6768/log/isat/</logs_files>
+	</directories>
+
+	<log_naming_pattern>%Y-%m-%d_dr_dsp.log</log_naming_pattern>
+	<log_flow_descriptor>8|dr|dsp</log_flow_descriptor>
+
+	<sleep>
+		<fast>1000000</fast>
+		<long>5000000</long>
+	</sleep>
+</sh6768isat>

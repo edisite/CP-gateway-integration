@@ -1,0 +1,45 @@
+---------------------------------------------------------------------------
+notes about 6768 system
+---------------------------------------------------------------------------
+
+first, 6768 business flow was something like this:
+
+    |<                MO                  >|<                         MT                            >|
+	operator --> koin --> solegra middleware --> koin/crm --> solegra middleware --> koin --> operator
+    |<                        DR                       >|
+    
+    - or it can be said that solegra only communicate with koin, operator only communicate with koin
+	- thus made possible that solegra's API with koin merely using 1 API for MO, 1 for MT, 1 for DR, which handled all operator
+	  or 3 php file for all operator (since koin communicate with solegra using url request)
+	- this system already running on server mystique (application) and onslaught (database)
+	
+	
+	
+	
+then do to migration (probably on march 2012), 6768 business flow changed into something like this:
+
+    |<                MO                      >|<                MT               >|
+	operator --> solegra middleware --> koin/crm --> solegra middleware --> operator
+    |<                DR                      >|
+
+	- or it can be said that operator only communicate with solegra
+	- thus made previous system must be modified and solegra's API will be 1 for MO, 1 for MT, 1 for DR, for each operator
+	  or 3 php file for each operator (some operator even require less do to some operator using SMPP to communicate with solegra)
+	- this system about to or already running on server koin-gw (application) and koin-db (database)
+	
+
+---------------------------------------------------------------------------
+changes on 6768 from old system into new system
+---------------------------------------------------------------------------
+- API (in form of php files) having a lot of changes, mainly is to break-up 1 php file for all operator into 1 php file for each operator
+  SO DO NOT COPY PHP FILES FROM OLD SYSTEM INTO THE NEW SYSTEM
+- Application (in form of application file in C language) also having changes, specially in transmitter application, where in the application
+  has beeen added to check message keyword to determine where the message should be transmitted (crm or koin or somewhere else)
+  SO DO NOT COPY C APPLICATION FILE (OR XML CONFIGURATION FILE) FROM OLD SYSTEM INTO THE NEW SYSTEM
+
+- BUT ALL APPLICATION USED (DISPATCHER AND TRANSMITTER) IS THE SAME (ONLY THE XML CONFIGURATION FILE THAT IS DIFFERENT)
+  or in another word is that dispatcher for indosat is the same dispatcher application used for telkomsel, so is transmitter application
+  
+- The database also having changes from old system into new system, but the tables structure is still the same, the difference is that
+  old system use 1 database for all operator, while the new system using 1 database for 1 operator
+  

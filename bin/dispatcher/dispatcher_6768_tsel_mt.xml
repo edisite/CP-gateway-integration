@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<sh6768tsel>
+	<app_port_num>37337</app_port_num>
+
+	<db_queue>
+		<host>10.1.1.75</host>
+		<database>mdw6768_tsel</database>
+		<user>hengky</user>
+		<password>h3ngkyp4ss</password>
+		<table>queue_tsel_mt</table>
+		<statistic_table>queue_tsel_mt_stat</statistic_table>
+		<expire_field>dtm</expire_field>
+		<expired_days>365</expired_days>
+	</db_queue>
+
+	<db_storage>
+		<host>10.1.1.75</host>
+		<database>mdw6768_tsel</database>
+		<user>hengky</user>
+		<password>h3ngkyp4ss</password>
+		<table>sms_out_tsel</table>
+	</db_storage>
+
+	<directories>
+		<data_files>/opt/apps/6768/queue/tsel/mt/</data_files>
+		<dump_files>/opt/apps/6768/queue/tsel/mt_trash/</dump_files>
+		<logs_files>/opt/apps/6768/log/tsel/</logs_files>
+	</directories>
+
+	<log_naming_pattern>%Y-%m-%d_mt_dsp.log</log_naming_pattern>
+	<log_flow_descriptor>5|mt|dsp</log_flow_descriptor>
+
+	<sleep>
+		<fast>1000000</fast>
+		<long>5000000</long>
+	</sleep>
+</sh6768tsel>
